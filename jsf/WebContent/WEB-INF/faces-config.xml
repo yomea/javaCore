@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+    <!-- 注册需要处理的bean -->
+    <managed-bean>
+        <managed-bean-name>user</managed-bean-name>
+        <managed-bean-class>
+            com.jsf.entity.UserBean
+        </managed-bean-class>
+       <!-- 管理范围是session -->
+        <managed-bean-scope>session</managed-bean-scope>
+        <!-- 启动bean设置初始值 -->
+        <!-- <managed-property>
+            <property-name>username</property-name>
+            <property-class>java.lang.String</property-class>
+            <value></value>
+        </managed-property>
+        <managed-property>
+            <property-name>password</property-name>
+            <property-class>java.lang.String</property-class>
+            <value></value>
+        </managed-property> -->
+    </managed-bean>
+    <!-- 定义页面流程 -->
+    <navigation-rule>
+        <from-view-id>/pages/login.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/pages/welcome.jsp</to-view-id>
+        </navigation-case>
+        </navigation-rule>
+    </faces-config>

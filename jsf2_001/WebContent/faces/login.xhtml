@@ -1,0 +1,45 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		  xmlns:h="http://xmlns.jcp.org/jsf/html"
+		  xmlns:f="http://xmlns.jcp.org/jsf/core"
+		  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<f:metadata>
+<!-- 视图参数 -->
+	<f:viewParam name="fname" value="#{user.name}"></f:viewParam>
+</f:metadata>
+<head>
+<title>login</title>
+</head>
+<body>
+
+	<h:form>
+			<h:panelGrid columns="2">
+			<!-- 将值存在flash中 -->
+				用户名：<h:inputText value="#{flash.name}" validator="#{user.validator}" required="true"></h:inputText><p></p>
+				密码：<h:inputText value="#{flash.password}" validator="#{user.validator}" required="true"></h:inputText>
+				<h:commandButton type="submit"  action="#{user.outcome}" value="提交"></h:commandButton>
+				<h:commandButton type="reset" value="重置"></h:commandButton>
+				<!-- 点击这个按钮会跳过验证，并且使用的是get提交方式，它不会像服务器提交user填入的值-->
+				<h:button value="test" outcome="success?faces-redirect=true&amp;includeViewParams=true"></h:button>
+				<!-- 重定向，如果bean声明周期是requestScope将不会保存值到新页面 -->
+				
+				<h:commandButton type="submit"  action="success?faces-redirect=true&amp;includeViewParams=true" value="提交"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+
+	<h:form>
+		<h:panelGrid columns="2">
+			用户名：<h:inputText value="#{user.name}" validator="#{user.validator}" required="true"></h:inputText><p></p>
+			密码：<h:inputText value="#{user.password}" validator="#{user.validator}" required="true"></h:inputText>
+			<h:commandButton type="submit"  action="#{user.outcome}" value="提交"></h:commandButton>
+			<h:commandButton type="reset" value="重置"></h:commandButton>
+			<!-- 点击这个按钮会跳过验证，并且使用的是get提交方式，它不会像服务器提交user填入的值-->
+			<h:button value="test" outcome="success"></h:button>
+			<!-- 重定向，如果bean声明周期是requestScope将不会保存值到新页面 -->
+			<h:commandButton type="submit"  action="failure?faces-redirect=true" value="提交"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>

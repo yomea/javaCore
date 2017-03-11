@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+    <!-- 注册需要处理的bean -->
+    <managed-bean>
+        <managed-bean-name>user</managed-bean-name>
+        <managed-bean-class>
+            com.jsf.entity.UserBean
+        </managed-bean-class>
+       <!-- 管理范围是session -->
+        <managed-bean-scope>session</managed-bean-scope>
+        
+        
+ <!--        <managed-bean>
+<managed-bean-name>statusStrings</managed-bean-name>
+<managed-bean-class>
+java.util.ArrayList
+</managed-bean-class>
+<managed-bean-scope>request</managed-bean-scope>
+<list-entries>
+<null-value/>
+<value>Open</value>
+<value>Submitted</value>
+<value>Accepted</value>
+<value>Rejected</value>
+</list-entries>
+</managed-bean> -->
+
+
+        <!-- <list-entries>如果定义是一个List的bean</list-entries> -->
+        <!-- 启动bean设置初始值 -->
+        <managed-property>
+            <property-name>name</property-name>
+            <property-class>java.lang.String</property-class>
+            <value>test</value>
+        </managed-property>
+        
+        <managed-property>
+            <property-name>user</property-name>
+            <property-class>com.jsf.entity.UserBean</property-class>
+            <value>#{user}</value>
+        </managed-property>
+        
+        <managed-property>
+        	<property-name>hobbies</property-name>
+            <list-entries>
+            	<value-class>java.lang.String</value-class>
+            	<value>play the piano</value>
+            	<value>play basket</value>
+            </list-entries>
+        </managed-property>
+    </managed-bean>
+    <!-- 定义页面流程 -->
+    <navigation-rule>
+        <from-view-id>/pages/login.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/pages/welcome.jsp</to-view-id>
+        </navigation-case>
+        </navigation-rule>
+    </faces-config>

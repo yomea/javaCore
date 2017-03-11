@@ -1,0 +1,12 @@
+server:
+          port: 8080
+          context-path: /springBoot/test
+          
+grate_hello: 你好
+
+grate_world: 世界
+          
+grate:
+          g1: ${grate_hello}
+          g2: ${grate_world}    
+          

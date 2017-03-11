@@ -1,0 +1,9 @@
+com\may\annotation\RequestMapper.class
+com\may\fileUtil\FileUtil.class
+com\may\servlet\MyServlet.class
+com\may\controller\UserController.class
+com\may\classloader\Test.class
+com\may\classloader\MyClassLoader.class
+com\may\annotation\Controller.class
+com\may\beanScale\BeanScale.class
+com\may\annotation\Autowire.class

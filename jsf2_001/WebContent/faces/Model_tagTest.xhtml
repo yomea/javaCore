@@ -1,0 +1,48 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		  xmlns:h="http://xmlns.jcp.org/jsf/html"
+		  xmlns:f="http://xmlns.jcp.org/jsf/core"
+		  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<head>
+<title>login</title>
+</head>
+<body>
+
+<!-- 将页面包含进来，并且向success.xhtml页面传递参数 -->
+
+<ui:include src="success.xhtml">
+<!-- 传递参数 -->
+	<ui:param name="a" value="test"></ui:param>
+<ui:param name="user" value="#{user}"></ui:param>
+
+</ui:include>
+
+<!-- 这个标签与ui:composition类似，只不过它会显示周围的内容 -->
+<!-- <ui:decorate template=""></ui:decorate> -->
+<!-- 将另个模板页面加进来，但是它周围的内容会剪切掉，不显示 -->
+<ui:composition template="template.xhtml">
+	<ui:define name="define_1">
+		<p></p>	
+		这里的内容将会插入到template.xhtml对应的ui:insert name="define_1"中
+	</ui:define>
+	
+	<ui:define name="define_2">
+	
+	这里的内容将会插入到template.xhtml对应的ui:insert name="define_2"中
+	</ui:define>
+
+</ui:composition>
+<!-- 由于ui：composition标签的存在，所以一下内容将不会显示 -->
+
+	<h:form>
+		<h:panelGrid columns="2">
+			用户名：<h:inputText value="#{user.name}" validator="#{user.validator}" required="true"></h:inputText><p></p>
+			密码：<h:inputText value="#{user.password}" validator="#{user.validator}" required="true"></h:inputText>
+			<h:commandButton type="submit"  action="#{user.outcome}" value="提交"></h:commandButton>
+			<h:commandButton type="reset" value="重置"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>

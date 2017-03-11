@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+	<book>
+		<name>红楼梦</name>
+		<author>罗贯中</author>
+	</book>
+		<name>西游记</name>
+		<author>吴承恩</author>
+	<book>
+	
+	</book>
+
+</bookstore>

@@ -1,0 +1,28 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		  xmlns:h="http://xmlns.jcp.org/jsf/html"
+		  xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<title>success</title>
+</head>
+<body>
+#{user.pushValueFromFlash()}
+
+<h:outputText value="#{flash.keep.name}"></h:outputText><p></p>
+		<h:outputText value="#{flash.password}"></h:outputText><p></p>
+
+cccccccccccc
+	<f:view>
+		<h:outputText value="#{a}"></h:outputText>
+		
+		
+		<h:outputText value="#{user.name}"></h:outputText><p></p>
+		<h:outputText value="#{user.password}"></h:outputText><p></p>
+		<!-- 立即事件<h:commandlink immediate是一个意思 -->
+		<h:link></h:link>
+		<h:button></h:button>
+	</f:view>
+</body>
+</html>
